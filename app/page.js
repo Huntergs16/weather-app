@@ -30,7 +30,7 @@ export default function Home() {
         <p className="text-md">by Hunter</p>
       </div>
       <div className='w-full flex justify-center items-center p-8'>
-        <DayList />
+        <DayList zip={zipcode}/>
       </div>
     </div>
   )

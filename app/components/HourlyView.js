@@ -12,7 +12,7 @@ export default function HourlyView({data, showHourly}) {
             {data.map((hour, idx) => {
                 return (
 
-                    <div className="flex flex-col items-center justify-center rounded-md border-2 border-black border-solid p-4 shadow-2xl">
+                    <div key={idx} className="flex flex-col items-center justify-center rounded-md border-2 border-black border-solid p-4 shadow-2xl">
                         <p>{convertTime(idx+1)}</p>
                         <Image src={`https:${hour.condition.icon}`}
                                 alt={hour.condition.text}

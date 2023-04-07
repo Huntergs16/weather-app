@@ -4,16 +4,15 @@ import WeatherDay from './WeatherDay';
 import HourlyView from './HourlyView';
 
 const API_KEY = '937fd797dfcd49c397112742230704';
-const ZIP_CODE = '48823';
 
-async function getData() {
+async function getData(zipcode) {
   const response = await axios.get(
-    `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${ZIP_CODE}&days=7`,
+    `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${zipcode}&days=7`,
   );
   return response.data.forecast;
 }
 
-function DayList() {
+function DayList({zip}) {
   const [selectedDay, setSelectedDay] = useState('0');
   const [weeklyForecast, setWeeklyForecast] = useState([]);
   const [todayHourly, setTodayHourly] = useState();
@@ -21,8 +20,9 @@ function DayList() {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getData();
-      console.log("HOURLY",data.forecastday[0].hour);
+      const data = await getData(zip);
+      console.log("HOURLY",data.forecastday);
+      console.log("HOURLY",zip);
       setTodayHourly(data.forecastday[0].hour);
 
       const weeklyForecastData = data.forecastday.map((item) => {
@@ -49,7 +49,7 @@ function DayList() {
     }
 
     fetchData();
-  }, []);
+  });
 
   return (
     <div className="flex flex-col flex-wrap gap-10 items-center">
