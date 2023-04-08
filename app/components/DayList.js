@@ -42,6 +42,7 @@ function DayList({zip}) {
           daily_chance_of_snow: item.day.daily_chance_of_snow,
           condition: item.day.condition,
           uv: item.day.uv,
+          hourly: item.hour,
         };
       });
 
@@ -55,7 +56,7 @@ function DayList({zip}) {
     <div className="flex flex-col flex-wrap gap-10 items-center">
       {/* today */}
       <WeatherDay today={true} selected={selectedDay} setSelected={setSelectedDay} data={weeklyForecast[0]} />
-      <button onClick={() => setShowHourly(!showHourly)} class="bg-blue-300 hover:shadow-lg active:shadow-2xl active: text-sm  py-2 px-4 rounded-md shadow-md shadow-cyan-500/50">
+      <button onClick={() => setShowHourly(!showHourly)} className="bg-blue-300 hover:shadow-xl active:shadow-2xl text-sm  py-2 px-4 rounded-md shadow-lg shadow-cyan-500/50">
         Show Hourly Weather
       </button>
       <HourlyView showHourly={showHourly} data={todayHourly}/>

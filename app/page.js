@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div className="flex h-screen w-full flex-col items-center font-mono gap-10">
-      <div className="flex flex-col justify-center items-center w-full bg-blue-300 p-20 rounded-b-3xl shadow-md shadow-cyan-500/50">
+      <div className="flex flex-col justify-center items-center w-full bg-blue-300 p-20 rounded-b-3xl shadow-lg shadow-cyan-500/50">
         <p className="text-4xl">Weather Dashboard</p>
         <p className="text-md">by Hunter</p>
       </div>
