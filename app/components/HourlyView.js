@@ -9,18 +9,23 @@ Chart.register(CategoryScale);
 
 export default function HourlyView({data, showHourly}) {
 
-    const [chartData, setChartData] = useState({
-        labels: data.map((data, idx) => convertTime(idx+1)), 
-        datasets: [
-          {
-            label: "Temp",
-            data: data.map((data) => data.temp_f),
-            borderWidth: 1,
-            fill: false,
-            pointBorderColor: "rgb(147, 197, 253, .3)",
+    const [chartData, setChartData] = useState();
+
+    useEffect(() => {
+        setChartData({
+            labels: data.map((data, idx) => convertTime(idx+1)), 
+            datasets: [
+              {
+                label: "Temp",
+                data: data.map((data) => data.temp_f),
+                borderWidth: 1,
+                fill: false,
+                pointBorderColor: "rgb(147, 197, 253, .3)",
+              }
+            ]
           }
-        ]
-      });
+        )
+    },[data]);
 
     const [viewType, setViewType] = useState(true);
 

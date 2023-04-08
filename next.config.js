@@ -6,7 +6,6 @@ const nextConfig = {
   images: {
     domains: ['cdn.weatherapi.com'],
   },
-  output: 'export',
 }
 
 module.exports = nextConfig
