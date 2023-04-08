@@ -57,7 +57,7 @@ function DayList({zip}) {
       {/* today */}
       <WeatherDay today={true} selected={selectedDay} setSelected={setSelectedDay} data={weeklyForecast[0]} />
       <button onClick={() => setShowHourly(!showHourly)} className="bg-blue-300 hover:shadow-xl active:shadow-2xl text-sm  py-2 px-4 rounded-md shadow-lg shadow-cyan-500/50">
-        Show Hourly Weather
+        {(showHourly ? "Hide":"Show") + "Hourly Weather"}
       </button>
       <HourlyView showHourly={showHourly} data={todayHourly}/>
       <div className="flex flex-wrap gap-10 justify-center items-center">
