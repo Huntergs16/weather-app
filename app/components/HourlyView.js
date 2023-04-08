@@ -8,11 +8,6 @@ const degreeSymbol = String.fromCharCode(176);
 Chart.register(CategoryScale);
 
 export default function HourlyView({data, showHourly}) {
-    if (!data){
-        return null;
-    }
-
-    const [viewType, setViewType] = useState(true);
 
     const [chartData, setChartData] = useState({
         labels: data.map((data, idx) => convertTime(idx+1)), 
@@ -27,9 +22,11 @@ export default function HourlyView({data, showHourly}) {
         ]
       });
 
+    const [viewType, setViewType] = useState(true);
+
     return (
         <div className={`w-[90%] flex flex-col justify-center items-center ${showHourly ? "opacity-100 h-full duration-300" : "opacity-0 h-0 duration-0"} transition-all`}>
-            <button onClick={() => setViewType(!viewType)} className="bg-blue-100 hover:shadow-xl active:text-xs text-sm py-2 px-4 rounded-md shadow-lg shadow-cyan-500/50">
+            <button onClick={() => setViewType(!viewType)} className="bg-blue-100 hover:shadow-xl active:text-xs text-sm py-2 px-4 rounded-md shadow-lg shadow-cyan-500/50 mb-6">
                 Switch view
             </button>
             <div className={`flex pt-8 justify-center min-h-[70%] h-full w-full sm:p-0 sm:w-full sm:h-full sm:text-xs items-center rounded-md text-md gap-2 flex-wrap`}>

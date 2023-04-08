@@ -15,7 +15,7 @@ async function getData(zipcode) {
 function DayList({zip}) {
   const [selectedDay, setSelectedDay] = useState('0');
   const [weeklyForecast, setWeeklyForecast] = useState([]);
-  const [todayHourly, setTodayHourly] = useState();
+  const [todayHourly, setTodayHourly] = useState([]);
   const [showHourly, setShowHourly] = useState(false);
 
   useEffect(() => {
